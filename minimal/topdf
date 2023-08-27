@@ -1,0 +1,3 @@
+
+dvips minimal.dvi
+ps2pdf minimal.ps

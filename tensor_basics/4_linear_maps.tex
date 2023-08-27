@@ -1,0 +1,157 @@
+\subsection{Linear Maps}
+
+Linear maps take a vector as an input and produce a new vector as an output. Linear maps
+don't transform the basis vectors. They just transform the input vectors into the output
+vectors given in the same basis.\\
+
+Linear maps shown as matrices contain the vector coordinates as columns they map copies of
+the unit basis vectors ${\tiny\begin{bmatrix} 1 \\ 0\end{bmatrix}}$ and
+${\tiny\begin{bmatrix} 0 \\ 1 \end{bmatrix}}$ to (see matrix multiplication with the
+corresponding vector from the right side). The first column is the mapped value of the
+first basis vector and the second column the mapped value of the second basis vector. In
+general the $i^{th}$ column is the mapped value of the $i^{th}$ basis vector.\\
+
+From a geometrical point of view linear maps are spactial transforms that keep gridlines
+parallel, keep gridlines evenly spaced, and keep the origin stationary. That is linear
+maps can stretch and rotate the input vectors, but they don't shift the origin.\\
+
+From an abstract point of view linear maps do map vectors to vectors and have the
+linearity properties, i.e. can be added and scaled. That means:
+\begin{equation}
+    \label{eq:linear_map_properties}
+    \begin{array}{rcl}
+        L: V \rightarrow  V &\text{or}& L: V \rightarrow W \\
+        L(\textcolor{ForestGreen}{\vec{v}} + \textcolor{RoyalPurple}{\vec{w}}) & = &
+        L(\textcolor{ForestGreen}{\vec{v}}) + L(\textcolor{RoyalPurple}{\vec{w}}) \\
+        L(\textcolor{Goldenrod}{n}\textcolor{ForestGreen}{\vec{v}}) & = &
+        \textcolor{Goldenrod}{n}L(\textcolor{ForestGreen}{\vec{v}}) 
+    \end{array}
+\end{equation}
+
+We can derive the linear map and the resulting matrix multiplication of the vector
+components directly from the linearity properties~(\ref{eq:linear_map_properties}):
+\begin{equation}
+    \label{eq:linear_map_derive_matrix_multiplication}
+    \begin{array}{rcl}
+        \textcolor{RoyalPurple}{\vec{w}} = L(\textcolor{Goldenrod}{\vec{v}}) & = &
+        L(\hdvc{1}\hdbv{1} + \hdvc{2}\hdbv{2}) \\
+        & \underset{(\ref{eq:linear_map_properties})}{=} &
+        \hdvc{1}L(\hdbv{1}) + \hdvc{2}L(\hdbv{2})
+    \end{array}
+\end{equation}
+
+Assuming $L: V\rightarrow V$, we can express the resulting vector in
+\{\hdbv{1},\hdbv{2}\}:
+\begin{equation}
+    \label{eq:linear_map_derive_matrix_multiplication_2}
+    \begin{array}{rcl}
+        L(\hdbv{1}) & = & L^{1~}_{~1}\hdbv{1} + L^{2~}_{~1}\hdbv{2} \\
+        L(\hdbv{2}) & = & L^{1~}_{~2}\hdbv{1} + L^{2~}_{~2}\hdbv{2} \\
+        L(\hdbv{j}) & = & L^{k~}_{~j}\hdbv{k}
+    \end{array}
+\end{equation}
+%Using~(\ref{eq:linear_map_derive_matrix_multiplication_2}) results in:
+\begin{equation}
+    \label{eq:linear_map_derive_matrix_multiplication_3}
+    \begin{array}{rcl}
+        \Rightarrow\textcolor{RoyalPurple}{\vec{w}} =
+        L(\textcolor{Goldenrod}{\vec{v}}) & = &
+        \hdvc{1}(L^{1~}_{~1}\hdbv{1} + L^{2~}_{~1}\hdbv{2}) +
+        \hdvc{2}(L^{1~}_{~2}\hdbv{1} + L^{2~}_{~2}\hdbv{2}) \\
+        & = & (L^{1~}_{~1}\hdvc{1}+ L^{1~}_{~2}\hdvc{2})\hdbv{1} +
+        (L^{2~}_{~1}\hdvc{1} + L^{2~}_{~2}\hdvc{2})\hdbv{2} \\
+        & = & \hspace{35pt}w^1\hspace{30pt}\hdbv{1} +
+        \hspace{35pt}w^2\hspace{30pt}\hdbv{2} \\
+        \noalign{\vskip10pt}
+        w^1 & = & L^{1~}_{~1}\hdvc{1}+ L^{1~}_{~2}\hdvc{2} \\
+        w^2 & = & L^{2~}_{~1}\hdvc{1} + L^{2~}_{~2}\hdvc{2} \\
+        \noalign{\vskip10pt}
+        \Rightarrow w^i & = &
+        L^{i~}_{~j}\hdvc{j}
+    \end{array}
+\end{equation}
+
+
+To figure out the transformation rules for linear maps we need to express the linear map
+as an expansion in the new basis to see how the new basis vector are mapped:
+\begin{equation}
+    \label{eq:linear_map_transform_to_new_basis}  
+    \begin{array}{rcl}
+        \widetilde{L^{l~}_{~i}}\hdbtv{l} & = & L(\hdbtv{i}) \\
+        & \underset{(\ref{eq:forward_trafo})}{=} &
+        L(F^{j~}_{~i}\hdbv{j}) \underset{(\ref{eq:linear_map_properties})}{=}
+        F^{j~}_{~i}L(\hdbv{j}) \\
+        & \underset{(\ref{eq:linear_map_derive_matrix_multiplication_2})}{=} &
+        F^{j~}_{~i}L^{k~}_{~j}\hdbv{k} \underset{(\ref{eq:backward_trafo})}{=}
+        F^{j~}_{~i}L^{k~}_{~j} B^{l~}_{~k}\hdbtv{l} \\
+        \widetilde{L^{l~}_{~i}}\hdbtv{l} & = &
+        B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} \hdbtv{l} \\
+        \noalign{\vskip10pt}
+        \Rightarrow \widetilde{L^{l~}_{~i}} & = &
+        B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i}
+    \end{array}
+\end{equation}
+
+To figure out the transformation to the old basis we can use the fact that the forward and
+the backward transform are inverses of each other~(\ref{eq:forward_backward_inverse}). By
+multiplying~(\ref{eq:linear_map_transform_to_new_basis}) from the left with the forward
+transformation matrix $F^{s~}_{~l}$ and from the right with the backward transformation
+matrix $B^{i~}_{~t}$we get:
+\begin{equation}
+    \label{eq:linear_map_transform_to_old_basis}  
+    \begin{array}{rcl}
+        \widetilde{L^{l~}_{~i}} & = & B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} \\
+        F^{s~}_{~l}\widetilde{L^{l~}_{~i}}B^{i~}_{~t} & = &
+        F^{s~}_{~l}B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} B^{i~}_{~t} \\
+        & = & \delta^s_k L^{k~}_{~j} \delta^j_t = L^{s~}_{~t} \\
+        \noalign{\vskip10pt}
+        \Rightarrow L^{s~}_{~t} & = & F^{s~}_{~l}\widetilde{L^{l~}_{~i}}B^{i~}_{~t}  
+    \end{array}
+\end{equation}
+
+\textbf{To sum up everything up to here:}\\
+
+\textcolor{red}{\underline{Contra}variant (1,0)-tensors} transform like this (basis /
+components) - the components can be written as column vectors and are multiplied to the
+matrix from the right:
+\begin{equation}
+    \begin{array}{rcl}
+        \hdcbtvc{i} & = & B^{i~}_{~j} \hdcbvc{j} \\
+        \hdcbvc{i} & = & F^{i~}_{~j}  \hdcbtvc{j}
+    \end{array}
+    \qquad
+    \begin{array}{rcl}
+        \hdtvc{i} & = & B^{i~}_{~j} \hdvc{j} \\
+        \hdvc{i} & = & F^{i~}_{~j}  \hdtvc{j}
+    \end{array}
+\end{equation}
+
+\textcolor{red}{\underline{Co}variant (0,1)-tensors} transform like this (basis /
+components) - the components can be written as row vectors and are multiplied to the
+matrix from the left:
+\begin{equation}
+    \begin{array}{rcl}
+        \hdbtv{j} & = & \hdbv{i}  F^{i~}_{~j} \\
+        \hdbv{j} & = & \hdbtv{i} B^{i~}_{~j} 
+    \end{array}
+    \qquad
+    \begin{array}{rcl}
+        \widetilde{{\alpha_j}} & = & {\alpha_i} F^{i~}_{~j}  \\
+        {\alpha_j} & = & \widetilde{{\alpha_i}} B^{i~}_{~j}
+    \end{array}
+\end{equation}
+
+\textcolor{red}{Linear maps are (1,1)-tensors}, i.e. they have a vector and a covector
+part and transform like this - the matrix of the coefficients of the linear map is
+multiplied from the left and the right with the respective forward or backward
+transformation matrices:
+\begin{equation}
+    \begin{array}{rcl}
+        \textcolor{red}{\widetilde{L^{i~}_{~j}}} & = &
+        B^{i~}_{~k} \textcolor{MidnightBlue}{L^{k~}_{~l}} F^{l~}_{~j} \\
+        \textcolor{MidnightBlue}{L^{i~}_{~j}} & = &
+        F^{i~}_{~k} \textcolor{red}{\widetilde{L^{k~}_{~l}}} B^{l~}_{~j}
+    \end{array}
+\end{equation}
+
+\newpage

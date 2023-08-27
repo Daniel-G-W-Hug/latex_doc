@@ -1,0 +1,70 @@
+\documentclass[12pt,twoside,a4paper]{article}
+% Umlaute direkt nutzen (Text muss direkt in utf8 vorliegen => Default bei sublime):
+% statt \"A, \"O, \"U, \"a, \"o, \"u und \ss{}
+% direkt Ä, Ö, Ü, ä, ö, ü und ß im Text engeben
+\usepackage[utf8]{inputenc}  % Umlaute direkt eingeben (ggf. latin1 statt utf8)
+\usepackage[T1]{fontenc}     % Ausgabe der Umlaute
+\usepackage{lmodern}
+
+\usepackage[dvips]{graphicx}       % alles zum Grafiken einbinden
+
+\usepackage{eurosym}               % Eurosymbol
+
+\usepackage[centertags]{amsmath}   % Mathekram: amstex
+\usepackage{amssymb}
+\usepackage{latexsym}              % math symbols
+\usepackage{exscale}               % Summen-/Integralzeichen in richtiger Groesse
+
+% Deutsch als Hauptsprache im Dokument (Layout von Datum, Trennungsregeln etc.)
+% Umschaltbar mit \selectlanguage{}
+\usepackage[main=ngerman, english]{babel}  % support "Neue Rechtschreibung"
+
+\usepackage[version=4]{mhchem}     % Chemische Formeln (muss nach amsmath kommen!)
+
+
+\begin{document}
+
+% \title{Mein Titel}
+% \author{Mein Name hier}
+% \date{\today}
+% \maketitle
+% \thispagestyle{empty}
+% \newpage
+
+\section{Erster Abschnitt}
+Etwas Text. Und der ganze Spaß kostet \euro{25}. Und sogar Chemiekram geht: \ce{C6H12O6 + 6O2 -> 6CO2 + 6H2O} oder \ce{Sb2O3} oder \ce{^227_90Th+}.
+
+
+\section{Zweiter Abschnitt}
+Umlaute als Steuerzeichen: \"A, \"O, \"U, \"a, \"o, \"u und \ss{} \\
+Umlaute direkt: Ä, Ö, Ü, ä, ö, ü und ß dank Paket "`inputenc"'\\
+
+Meine erste Formel:
+\begin{equation}
+\text{Seien } a,b \in \mathbb{R}, \text{ dann gilt } (a+b)^{2} = a^{2} + 2ab + b^{2}
+\end{equation}
+
+Einfacher geht es auch so $(a+b)^{2} = a^{2} + 2ab + b^{2}$
+
+\section{Dritter Abschnitt}
+
+\begin{itemize} 
+\item Ein Stichpunkt 
+\item Noch ein Stichpunkt 
+\end{itemize}
+
+\begin{enumerate} 
+\item Erster Stichpunkt
+\item Zweiter Stichpunkt 
+\end{enumerate}
+
+\section{Abschnitt mit Bild}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.2\textwidth]{Knut}
+\caption{Unser neues Logo}
+\label{fig:Bild1}
+\end{figure}
+
+\end{document}

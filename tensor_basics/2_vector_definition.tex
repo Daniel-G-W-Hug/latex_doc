@@ -79,26 +79,29 @@ compontents we get:
   \label{eq:vector_trafo_overview}
   \begin{array}{rclrcl}
     \hdbtvc{i} & = &
-    F^{j~}_{~i}\hdbvc{j} \qquad\qquad
+    F^{j~}_{~i}\hdbvc{j} = \hdbvc{j} F^{j~}_{~i} \qquad\qquad
     \hdtvc{i} & = & B^{i~}_{~j} \hdvc{j} \\
     \hdbvc{i} & = &
-    B^{j~}_{~i}\hdbtvc{j} \qquad\qquad
+    B^{j~}_{~i}\hdbtvc{j} = \hdbtvc{j} B^{j~}_{~i} \qquad\qquad
     \hdvc{i} & = &  F^{i~}_{~j} \hdtvc{j}
   \end{array}
 \end{equation}
 
 As can be seen, the basis vectors and their componentens transform with different
-transformations. This transformation behaviour is called contravariant. It is the reason
-that vectors are called contravariant tensors. \\
-
-For transformation basis vectors are applied to the matrix from the left and vector
-components are multiplied from the right for a transformation. This can be seen in the
-index notation as well by the position of the indices.
+transformations. This transformation behaviour is called contravariant. Thus vectors are
+contravariant tensors. \\
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.65\textwidth]{Summary_transformations_eigenchris}
   \caption{Summary of transformations (example)}
   \label{fig:transformation_summary_example}
 \end{figure}
+
+For basis transformations the basis vectors are applied to the transformation matrix from
+the left whereas vector components are multiplied to the transformation matrix from the
+right. This can be seen in the index notation as well by the position of the indices.
+Multiplication from the left corresponds to summation over the first index, while
+multiplication from the right corresponds to summation over the second index of the
+transformation matrix.
 
 \newpage

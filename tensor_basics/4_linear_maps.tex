@@ -4,14 +4,13 @@ Linear maps take a vector as an input and produce a new vector as an output. Lin
 don't transform the basis vectors. They just transform the input vectors into the output
 vectors given in the same basis.\\
 
-Linear maps shown as matrices contain the vector coordinates as columns they map copies of
-the unit basis vectors ${\tiny\begin{bmatrix} 1 \\ 0\end{bmatrix}}$ and
-${\tiny\begin{bmatrix} 0 \\ 1 \end{bmatrix}}$ to (see matrix multiplication with the
+Linear maps shown as matrices map copies of the unit basis vectors $[1,0]^T$ and $[0,1]^T$
+into the vectors their coordinate columns consist of (see matrix multiplication with the
 corresponding vector from the right side). The first column is the mapped value of the
 first basis vector and the second column the mapped value of the second basis vector. In
 general the $i^{th}$ column is the mapped value of the $i^{th}$ basis vector.\\
 
-From a geometrical point of view linear maps are spactial transforms that keep gridlines
+From a geometrical point of view linear maps are spacial transforms that keep gridlines
 parallel, keep gridlines evenly spaced, and keep the origin stationary. That is linear
 maps can stretch and rotate the input vectors, but they don't shift the origin.\\
 
@@ -87,8 +86,8 @@ as an expansion in the new basis to see how the new basis vector are mapped:
         \widetilde{L^{l~}_{~i}}\hdbtv{l} & = &
         B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} \hdbtv{l} \\
         \noalign{\vskip10pt}
-        \Rightarrow \widetilde{L^{l~}_{~i}} & = &
-        B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i}
+        \Rightarrow \textcolor{red}{\widetilde{L^{l~}_{~i}}} & = &
+        B^{l~}_{~k} \textcolor{MidnightBlue}{L^{k~}_{~j}} F^{j~}_{~i}
     \end{array}
 \end{equation}
 
@@ -100,57 +99,14 @@ matrix $B^{i~}_{~t}$we get:
 \begin{equation}
     \label{eq:linear_map_transform_to_old_basis}  
     \begin{array}{rcl}
-        \widetilde{L^{l~}_{~i}} & = & B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} \\
-        F^{s~}_{~l}\widetilde{L^{l~}_{~i}}B^{i~}_{~t} & = &
-        F^{s~}_{~l}B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} B^{i~}_{~t} \\
+        \widetilde{L^{l~}_{~i}} & = &
+        B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} \\
+        F^{s~}_{~l} \widetilde{L^{l~}_{~i}} B^{i~}_{~t} & = &
+        F^{s~}_{~l} B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} B^{i~}_{~t} \\
         & = & \delta^s_k L^{k~}_{~j} \delta^j_t = L^{s~}_{~t} \\
         \noalign{\vskip10pt}
-        \Rightarrow L^{s~}_{~t} & = & F^{s~}_{~l}\widetilde{L^{l~}_{~i}}B^{i~}_{~t}  
-    \end{array}
-\end{equation}
-
-\textbf{To sum up everything up to here:}\\
-
-\textcolor{red}{\underline{Contra}variant (1,0)-tensors} transform like this (basis /
-components) - the components can be written as column vectors and are multiplied to the
-matrix from the right:
-\begin{equation}
-    \begin{array}{rcl}
-        \hdcbtvc{i} & = & B^{i~}_{~j} \hdcbvc{j} \\
-        \hdcbvc{i} & = & F^{i~}_{~j}  \hdcbtvc{j}
-    \end{array}
-    \qquad
-    \begin{array}{rcl}
-        \hdtvc{i} & = & B^{i~}_{~j} \hdvc{j} \\
-        \hdvc{i} & = & F^{i~}_{~j}  \hdtvc{j}
-    \end{array}
-\end{equation}
-
-\textcolor{red}{\underline{Co}variant (0,1)-tensors} transform like this (basis /
-components) - the components can be written as row vectors and are multiplied to the
-matrix from the left:
-\begin{equation}
-    \begin{array}{rcl}
-        \hdbtv{j} & = & \hdbv{i}  F^{i~}_{~j} \\
-        \hdbv{j} & = & \hdbtv{i} B^{i~}_{~j} 
-    \end{array}
-    \qquad
-    \begin{array}{rcl}
-        \widetilde{{\alpha_j}} & = & {\alpha_i} F^{i~}_{~j}  \\
-        {\alpha_j} & = & \widetilde{{\alpha_i}} B^{i~}_{~j}
-    \end{array}
-\end{equation}
-
-\textcolor{red}{Linear maps are (1,1)-tensors}, i.e. they have a vector and a covector
-part and transform like this - the matrix of the coefficients of the linear map is
-multiplied from the left and the right with the respective forward or backward
-transformation matrices:
-\begin{equation}
-    \begin{array}{rcl}
-        \textcolor{red}{\widetilde{L^{i~}_{~j}}} & = &
-        B^{i~}_{~k} \textcolor{MidnightBlue}{L^{k~}_{~l}} F^{l~}_{~j} \\
-        \textcolor{MidnightBlue}{L^{i~}_{~j}} & = &
-        F^{i~}_{~k} \textcolor{red}{\widetilde{L^{k~}_{~l}}} B^{l~}_{~j}
+        \Rightarrow \textcolor{MidnightBlue}{L^{s~}_{~t}} & = &
+        F^{s~}_{~l} \textcolor{red}{\widetilde{L^{l~}_{~i}}} B^{i~}_{~t}  
     \end{array}
 \end{equation}
 

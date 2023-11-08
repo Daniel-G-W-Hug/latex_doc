@@ -1,13 +1,13 @@
 \subsection{Transformation laws of arbitrary tensors}
-Let's review the defintion of a tensor: \emph{``A tensor is an object that is invariant under a
-a change of coordinates, and has components that change in a special, predictable way
-under a change of coordinates.''} \\
+Let's review the defintion 1 of a tensor from the front page: \emph{``A tensor is an
+object that is invariant under a change of coordinates, and has components that change in
+a special, predictable way under a change of coordinates.''} \\
 
 \textbf{To sum up everything up to here:}\\
 
 \textcolor{red}{\underline{Contra}variant (1,0)-tensors} transform like this (basis /
 components) - the components can be written as column vectors and are multiplied to the
-matrix from the right:
+matrix from the right (i.e. summation over the second index):
 \begin{equation}
     \begin{array}{rcl}
         \hdcbtvc{i} & = & B^{i~}_{~j} \hdcbvc{j} \\
@@ -22,16 +22,17 @@ matrix from the right:
 
 \textcolor{red}{\underline{Co}variant (0,1)-tensors} transform like this (basis /
 components) - the components can be written as row vectors and are multiplied to the
-matrix from the left:
+matrix from the left (i.e. summation over the first index):
 \begin{equation}
     \begin{array}{rcl}
-        \hdbtv{j} & = & \hdbv{i}  F^{i~}_{~j} \\
-        \hdbv{j} & = & \hdbtv{i} B^{i~}_{~j} 
+        \hdbtv{j} & = & \hdbv{i}  F^{i~}_{~j} = F^{i~}_{~j} \hdbv{i}\\
+        \hdbv{j} & = & \hdbtv{i} B^{i~}_{~j} = B^{i~}_{~j} \hdbtv{i}
     \end{array}
     \qquad
     \begin{array}{rcl}
-        \widetilde{{\alpha_j}} & = & {\alpha_i} F^{i~}_{~j}  \\
-        {\alpha_j} & = & \widetilde{{\alpha_i}} B^{i~}_{~j}
+        \widetilde{\alpha_j} & = & \alpha_i F^{i~}_{~j} = F^{i~}_{~j} \alpha_i \\
+        {\alpha_j} & = & \widetilde{\alpha_i} B^{i~}_{~j}
+        = B^{i~}_{~j} \widetilde{\alpha_i}
     \end{array}
 \end{equation}
 
@@ -78,8 +79,11 @@ The upstairs indices represent the contravariant components of the tensor and th
 downstairs indices represent the covariant components of the tensor. The transformation
 itself is a series of backward and forward transforms. To go from old to new system the
 covariant componens use forward transformations, while the contravariant components use
-backward transformations. \\
+backward transformations. For the transformation from the new to the old system the
+situation reverses. \\
 
-Anything that follows these transformation rules during change of coordinates is a tensor.
+\textbf{Anything that follows these transformation rules during change of coordinates
+is a tensor.}
+
 
 \newpage

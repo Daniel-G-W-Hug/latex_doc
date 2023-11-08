@@ -36,19 +36,26 @@ an implied summation over $i$ and $j$ as
 Here $g$ is the metric tensor given in coordinates of the old and new system respectively.
 It's components are defined by the scalar products:
 \begin{equation}
-    \begin{array}{rcl}
-        g_{ij} & = & (\hdbv{i}\cdot\hdbv{j}) \\
-        \tilde{g}_{ij} & = & (\hdbtv{i}\cdot\hdbtv{j})
+    \begin{array}{rclrclrcl}
+        g_{ij} & = & (\hdbv{i}\cdot\hdbv{j}) & = &
+        (\hdbv{j}\cdot\hdbv{i}) & = & g_{ji} \\
+        \tilde{g}_{ij} & = & (\hdbtv{i}\cdot\hdbtv{j}) & = &
+        (\hdbtv{j}\cdot\hdbtv{i}) & = &  \tilde{g}_{ji}
     \end{array}
 \end{equation}
 In component form it can be written as a symmetric matrix, because the sequence of
 arguments does not influence the result of the dot product.
 \begin{equation}
-    \begin{array}{rcl}
+    \begin{array}{rclrcl}
         g_{\hdbv{i}}& = &
         \prescript{}{}{\begin{bmatrix}
             \hdbv{1}\cdot\hdbv{1} & \hdbv{1}\cdot\hdbv{2} \\
             \hdbv{2}\cdot\hdbv{1} & \hdbv{2}\cdot\hdbv{2} 
+        \end{bmatrix}_{\hdbv{i}}}
+        & = &
+        \prescript{}{}{\begin{bmatrix}
+            \hdbv{1}\cdot\hdbv{1} & \hdbv{1}\cdot\hdbv{2} \\
+            \hdbv{1}\cdot\hdbv{2} & \hdbv{2}\cdot\hdbv{2} 
         \end{bmatrix}_{\hdbv{i}}} \\
         \noalign{\vskip10pt}
         g_{\hdbtv{i}}& = &
@@ -56,11 +63,17 @@ arguments does not influence the result of the dot product.
             \hdbtv{1}\cdot\hdbtv{1} & \hdbtv{1}\cdot\hdbtv{2} \\
             \hdbtv{2}\cdot\hdbtv{1} & \hdbtv{2}\cdot\hdbtv{2} 
         \end{bmatrix}_{\hdbtv{i}}}
+        & = &
+        \prescript{}{}{\begin{bmatrix}
+            \hdbtv{1}\cdot\hdbtv{1} & \hdbtv{1}\cdot\hdbtv{2} \\
+            \hdbtv{1}\cdot\hdbtv{2} & \hdbtv{2}\cdot\hdbtv{2} 
+        \end{bmatrix}_{\hdbtv{i}}}
     \end{array}
 \end{equation}
 
-All dot products can be computed in an arbitrary basis system by using the metric
-tensor:
+For the special case of an orthonormal system these matrices become the identity matrix.
+All dot products can be computed in an arbitrary basis system by using the metric tensor
+like this:
 \begin{equation}
     \label{eq:scalar_product_definition}
     \begin{array}{rclrcl}
@@ -85,21 +98,73 @@ equation~(\ref{eq:vector_trafo_overview}):
 
 \begin{equation}
     \begin{array}{rcl}
-        \tilde{g}_{ij} & = & \hdbtv{i} \cdot \hdbtv{j} \\
+        \textcolor{red}{\tilde{g}_{ij}} & = & \hdbtv{i} \cdot \hdbtv{j} \\
                        & = & (F^{k~}_{~i}\hdbv{k}) \cdot (F^{l~}_{~j}\hdbv{l}) \\
                        & = & F^{k~}_{~i}  F^{l~}_{~j} (\hdbv{k} \cdot \hdbv{l}) \\
-        \Rightarrow\tilde{g}_{ij} & = & F^{k~}_{~i}  F^{l~}_{~j} {g}_{kl} \\
+                       \noalign{\vskip10pt}
+        \Rightarrow\textcolor{red}{\tilde{g}_{ij}} & = &
+        F^{k~}_{~i}  F^{l~}_{~j} \textcolor{MidnightBlue}{{g}_{kl}} \\
         \noalign{\vskip10pt}
-        g_{kl} & = & \hdbv{k} \cdot \hdbv{l} \\
+        \textcolor{MidnightBlue}{g_{kl}} & = & \hdbv{k} \cdot \hdbv{l} \\
         & = & (B^{i~}_{~k}\hdbtv{i}) \cdot (B^{j~}_{~l}\hdbtv{j}) \\
         & = & B^{i~}_{~k} B^{j~}_{~l} (\hdbtv{i} \cdot \hdbtv{j}) \\
-        \Rightarrow g_{kl} & = & B^{i~}_{~k} B^{j~}_{~l}  \tilde{g}_{ij}
+        \noalign{\vskip10pt}
+        \Rightarrow \textcolor{MidnightBlue}{g_{kl}} & = &
+        B^{i~}_{~k} B^{j~}_{~l} \textcolor{red}{\tilde{g}_{ij}}
     \end{array}
 \end{equation} \\
 
-\textcolor{red}{Metric tensors are (0,2)-tensors}, because they transform with covariant
-transformation behaviour using two transformations for change from one system to another.
-This is also suggested by using lower indices for the metric tensor components. \\
+\textcolor{red}{Metric tensors are (0,2)-tensors}. They transform with covariant
+transformation behaviour using two consecutive transformations for a change of
+coordinates. \\
+
+The metric tensor is a function that takes two vectors as input and transforms them into a
+real number, thus it is an example of a so-called bilinear form: $g\!: V \times V
+\rightarrow \mathbb{R}$, i.e. $g(\vec{v},\vec{w}) \rightarrow v^i w^j g_{ij}$. When we put
+in the same vector twice we get the vector length. When we put in two vectors we get the
+product of their vector lengths times the cosine of the angle between them (see
+eq.~(\ref{eq:scalar_product_definition})). \\
+
+The metric tensor $g$ is called a bilinear form, because it takes two vectors as input,
+maps them to a real number as output, and has the linearity properties for both of its
+arguments:
+\begin{equation}
+    \label{eq:metric_tensor_linearity_properties}
+    \begin{array}{rcl}
+        g\!: V \times V \rightarrow \mathbb{R},&&
+        g(\vec{v},\vec{w}) \rightarrow v^i w^j g_{ij} \\
+        \noalign{\vskip10pt}
+        a(v^i w^j g_{ij}) &=& (av^i) w^j g_{ij} = v^i (aw^j) g_{ij} \\
+        \Rightarrow ag(\vec{v},\vec{w}) &=& g(a\vec{v},\vec{w}) = g(\vec{v},a\vec{w}) \\
+        \noalign{\vskip10pt}
+        (v^i + u^i) w^j g_{ij} &=& v^i w^j g_{ij} + u^i w^j g_{ij} \\
+        \Rightarrow g(\vec{v}+\vec{u},\vec{w}) &=& g(\vec{v},\vec{w}) + g(\vec{u},\vec{w}) \\
+        \noalign{\vskip10pt}
+        v^i (w^j + t^j) g_{ij} &=& v^i w^j g_{ij} + v^i t^j g_{ij} \\
+        \Rightarrow g(\vec{v},\vec{w}+\vec{t}) &=& g(\vec{v},\vec{w}) + g(\vec{v},\vec{t})
+    \end{array}
+\end{equation}
+
+In general forms are functions that take an arbitrary number of vector inputs and provide
+a scalar as an output, i.e. forms: $V \times V \times \cdots \times V \rightarrow
+\mathbb{R}$. Forms must have the linearity properties. Examples of a 1-form or a linear form
+are covectors ($V \rightarrow \mathbb{R}$). An example of a 2-form or bilinear form is the
+metric tensor, as shown above ($V \times V \rightarrow \mathbb{R}$). \\
+
+The metric tensor is a special bilinear form, because it has two addional properties that
+bilinear forms do not have in general:
+\begin{equation}
+    \label{eq:metric_tensor_special_additional_properties}
+    \begin{array}{rcl}
+        g(\vec{v},\vec{w}) &=& v^i w^j g_{ij} = v^i w^j g_{ji} = g(\vec{w},\vec{v})
+        \quad\text{(symmetry)}\\
+        g(\vec{v},\vec{v}) &=& \| v \|^2 \geq 0
+        \quad\text{(positive vector length)}
+    \end{array}
+\end{equation}
+
+
+
 
 
 \newpage

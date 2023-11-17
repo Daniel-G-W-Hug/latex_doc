@@ -110,12 +110,43 @@ matrix $B^{i~}_{~t}$we get:
     \end{array}
 \end{equation}
 
+Linear transformations can also be interpreted as vector-covector pairs, i.e. as a tensor
+product of covariant basis vectors $\hdbv{i}$ and contravariant covector basis vectors
+$\hdcbvc{j}$. The matrix product of these basis vectors forms a basis for any arbitrary
+linear transformation matrix, i.e. the set
+$\{\hdbv{1}\hdcbvc{1},\hdbv{1}\hdcbvc{2},\hdbv{2}\hdcbvc{1},\hdbv{2}\hdcbvc{2}\}$ is a
+basis for $V \rightarrow V$ (the same consideration is possible for the new basis).
+\begin{equation}
+    \begin{array}{rcl}
+        \label{eq:linear_map_def_as_vec-covec} 
+        L & = & a\hdbv{1}\hdcbvc{1}+
+                b\hdbv{1}\hdcbvc{2}+
+                c\hdbv{2}\hdcbvc{1}+
+                d\hdbv{2}\hdcbvc{2} \\
+        L & = & L^{i~}_{~j} \hdbv{i}\hdcbvc{j}
+    \end{array}
+\end{equation}
+In matrix notation the matrix for an arbitrary linear transformation is:
+\begin{equation}
+    a\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} + 
+    b\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} + 
+    c\begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix} + 
+    d\begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} =
+    a\begin{bmatrix} a & b \\ c & d \end{bmatrix}
+\end{equation}
 
-
-% 8:16
-
-% 9:45
-
-% 11:59
+Using the second equation of (\ref{eq:linear_map_def_as_vec-covec}) and the vector
+definition $\vec{v} = \hdvc{k} \hdbvc{k}$ we get:
+\begin{equation}
+    \begin{array}{rcl}
+        \vec{w} & = & L(\vec{v}) \\
+          & =  & L^{i~}_{~j} \hdbv{i}\hdcbvc{j} (\hdvc{k} \hdbvc{k}) \\
+          & = & L^{i~}_{~j} \hdvc{k}\hdbv{i}\hdcbvc{j}(\hdbvc{k}) \\
+          & = & L^{i~}_{~j} \hdvc{k}\hdbv{i} \delta^j_k \\
+          \noalign{\vskip10pt}
+        \Rightarrow \vec{w} & = & L^{i~}_{~j} \hdvc{j}\hdbv{i} \\
+        w^i & = & L^{i~}_{~j} \hdvc{j}
+    \end{array}
+\end{equation}
 
 \newpage

@@ -6,7 +6,7 @@ a special, predictable way under a change of coordinates.''} \\
 \textbf{To sum up everything up to here:}\\
 
 \textcolor{red}{\underline{Contra}variant (1,0)-tensors} transform like this (basis /
-components) - the components can be written as column vectors and are multiplied to the
+components): the components can be written as column vectors and are multiplied to the
 matrix from the right (i.e. summation over the second index):
 \begin{equation}
     \begin{array}{rcl}
@@ -21,23 +21,23 @@ matrix from the right (i.e. summation over the second index):
 \end{equation}
 
 \textcolor{red}{\underline{Co}variant (0,1)-tensors} transform like this (basis /
-components) - the components can be written as row vectors and are multiplied to the
+components): the components can be written as row vectors and are multiplied to the
 matrix from the left (i.e. summation over the first index):
 \begin{equation}
     \begin{array}{rcl}
-        \hdbtv{j} & = & \hdbv{i}  F^{i~}_{~j} = F^{i~}_{~j} \hdbv{i}\\
-        \hdbv{j} & = & \hdbtv{i} B^{i~}_{~j} = B^{i~}_{~j} \hdbtv{i}
+        \hdbtv{j} & = & F^{i~}_{~j} \hdbv{i} = \hdbv{i}  F^{i~}_{~j} \\
+        \hdbv{j} & = & B^{i~}_{~j} \hdbtv{i} = \hdbtv{i} B^{i~}_{~j} 
     \end{array}
     \qquad
     \begin{array}{rcl}
-        \widetilde{\alpha_j} & = & \alpha_i F^{i~}_{~j} = F^{i~}_{~j} \alpha_i \\
-        {\alpha_j} & = & \widetilde{\alpha_i} B^{i~}_{~j}
-        = B^{i~}_{~j} \widetilde{\alpha_i}
+        \widetilde{\alpha_j} & = & F^{i~}_{~j} \alpha_i = \alpha_i F^{i~}_{~j} \\
+        {\alpha_j} & = & B^{i~}_{~j} \widetilde{\alpha_i} =
+        \widetilde{\alpha_i} B^{i~}_{~j}
     \end{array}
 \end{equation}
 
 \textcolor{red}{Linear maps are (1,1)-tensors}, i.e. they have a vector and a covector
-part and transform like this - the matrix of the coefficients of the linear map is
+part and transform like this: the matrix of the coefficients of the linear map is
 multiplied from the left and the right with the respective forward or backward
 transformation matrices:
 \begin{equation}
@@ -78,9 +78,9 @@ $(m,n)$ with $m$ upstairs indices and $n$ downstairs indices are:}
 The upstairs indices represent the contravariant components of the tensor and the
 downstairs indices represent the covariant components of the tensor. The transformation
 itself is a series of backward and forward transforms. To go from old to new system the
-covariant componens use forward transformations, while the contravariant components use
-backward transformations. For the transformation from the new to the old system the
-situation reverses. \\
+covariant componens use forward transforms, while the contravariant components use
+backward transforms. For the transformation from the new to the old system the situation
+reverses. \\
 
 \textbf{Anything that follows these transformation rules during change of coordinates
 is a tensor.}

@@ -98,14 +98,20 @@ equation~(\ref{eq:vector_trafo_overview}):
 
 \begin{equation}
     \begin{array}{rcl}
-        \textcolor{red}{\tilde{g}_{ij}} & = & \hdbtv{i} \cdot \hdbtv{j} \\
-                       & = & (F^{k~}_{~i}\hdbv{k}) \cdot (F^{l~}_{~j}\hdbv{l}) \\
-                       & = & F^{k~}_{~i}  F^{l~}_{~j} (\hdbv{k} \cdot \hdbv{l}) \\
-                       \noalign{\vskip10pt}
+        \textcolor{red}{\tilde{g}_{ij}}
+        & = & \hdbtv{i} \cdot \hdbtv{j} \\
+        & = & (F^{k~}_{~i}\hdbv{k}) \cdot (F^{l~}_{~j}\hdbv{l}) \\
+        & = & F^{k~}_{~i}  F^{l~}_{~j} (\hdbv{k} \cdot \hdbv{l}) \\
+        \noalign{\vskip10pt}
         \Rightarrow\textcolor{red}{\tilde{g}_{ij}} & = &
         F^{k~}_{~i}  F^{l~}_{~j} \textcolor{MidnightBlue}{{g}_{kl}} \\
-        \noalign{\vskip10pt}
-        \textcolor{MidnightBlue}{g_{kl}} & = & \hdbv{k} \cdot \hdbv{l} \\
+    \end{array}
+\end{equation}
+And equivalently for the transformation in the other direction:
+\begin{equation}
+    \begin{array}{rcl}
+        \textcolor{MidnightBlue}{g_{kl}}
+        & = & \hdbv{k} \cdot \hdbv{l} \\
         & = & (B^{i~}_{~k}\hdbtv{i}) \cdot (B^{j~}_{~l}\hdbtv{j}) \\
         & = & B^{i~}_{~k} B^{j~}_{~l} (\hdbtv{i} \cdot \hdbtv{j}) \\
         \noalign{\vskip10pt}
@@ -120,10 +126,11 @@ coordinates. \\
 
 The metric tensor is a function that takes two vectors as input and transforms them into a
 real number, thus it is an example of a so-called bilinear form: $g\!: V \times V
-\rightarrow \mathbb{R}$, i.e. $g(\vec{v},\vec{w}) \rightarrow v^i w^j g_{ij}$. When we put
-in the same vector twice we get the vector length. When we put in two vectors we get the
-product of their vector lengths times the cosine of the angle between them (see
-eq.~(\ref{eq:scalar_product_definition})). \\
+\rightarrow \mathbb{R}$, i.e. $g(\vec{v},\vec{w}) \rightarrow v^i w^j g_{ij}$.
+
+When we put in the same vector as an argument twice we get the vector length. When we put
+in two vectors we get the product of their vector lengths times the cosine of the angle
+between them (see eq.~(\ref{eq:scalar_product_definition})). \\
 
 The metric tensor $g$ is called a bilinear form, because it takes two vectors as input,
 maps them to a real number as output, and has the linearity properties for both of its
@@ -172,23 +179,23 @@ maps, we can show that the bilinear map can be created from that definition and 
         \mathcal{B} & = & \mathcal{B}_{kl} \hdcbvc{k}\hdcbvc{l} \\
         & = & \mathcal{B}_{kl}(F^{k~}_{~i}\hdcbtvc{i})(F^{l~}_{~j}\hdcbtvc{j}) \\
         & = & (F^{k~}_{~i}  F^{l~}_{~j} \mathcal{B}_{kl})\hdcbtvc{i}\hdcbtvc{j} \\
-        & = & \widetilde{\mathcal{B}_{ij}}\hdcbtvc{i}\hdcbtvc{j} \\
+        & = & \qquad \widetilde{\mathcal{B}_{ij}} \qquad\! \hdcbtvc{i}\hdcbtvc{j} \\
         \noalign{\vskip10pt}
         \Rightarrow \widetilde{\mathcal{B}_{ij}} & = & F^{k~}_{~i}  F^{l~}_{~j} \mathcal{B}_{kl} \\
         \text{and correspondingly:} \qquad\mathcal{B}_{ij}
         & = & B^{k~}_{~i}  B^{l~}_{~j} \widetilde{\mathcal{B}_{kl}}
     \end{array}
 \end{equation}
-Their coordinate forms can be derived from this definition $\mathcal{B} = \mathcal{B}_{ij}
-\hdcbvc{i}\hdcbvc{j}$ and the vector definitions $\vec{v} = v^k \hdbv{k}$ and $\vec{w} =
-w^l \hdbv{l}$ by inserting them:
+The coordinate form of a bilinear form can be derived from this definition $\mathcal{B} =
+\mathcal{B}_{ij} \hdcbvc{i}\hdcbvc{j}$ and the vector definitions $\vec{v} = v^k \hdbv{k}$
+and $\vec{w} = w^l \hdbv{l}$ directly by inserting them:
 \begin{equation}
     \begin{array}{rcl}
         s & = & \mathcal{B}(\vec{v},\vec{w}) \\
         & = & \mathcal{B}_{ij}\hdcbvc{i}\hdcbvc{j}(v^k \hdbv{k},w^l \hdbv{l}) \\
         & = & \mathcal{B}_{ij}\hdcbvc{i}(v^k \hdbv{k})\hdcbvc{j}(w^l \hdbv{l}) \\
         & = & \mathcal{B}_{ij}v^k w^l \hdcbvc{i}(\hdbv{k})\hdcbvc{j}(\hdbv{l}) \\
-        & = & \mathcal{B}_{ij}v^k w^l \delta^i_k \delta^j_l \\
+        & = & \mathcal{B}_{ij}v^k w^l \quad \delta^i_k \qquad\!\! \delta^j_l \\
         & = & \mathcal{B}_{ij}v^i w^j 
     \end{array}
 \end{equation} \\
@@ -197,16 +204,19 @@ The metric tensor can also be used to describe a correspondence of vectors in th
 space $V$ to the dual space $V^*$. The correspondence exists between vectors and the
 scalar product of $\vec{v}$ with an open slot to be filled with another vector. This leads
 to a formula for lowering the index of a vector component with the help of the metric
-tensor $g_{ij}$ and a formular for raising the index with the help of the inverse metric
+tensor $\textcolor{MidnightBlue}{g_{ij}}$ and a formular for raising the index with the help of the inverse metric
 tensor $\mathfrak{g}^{ij}$:
 \begin{equation}
     \begin{array}{rclrcl}
-        v_i & = & g_{ij} v^j \qquad 
-        \widetilde{v_i} & = & \widetilde{g_{ij}} \widetilde{v^j} \\
-        v^i & = & \mathfrak{g}^{ij} v_j \qquad 
-        \widetilde{v^i} & = & \widetilde{\mathfrak{g}^{ij}} \widetilde{v_j} \\
-        \text{where}\quad \mathfrak{g}^{ki}g_{ij} & = &  \delta^k_j \qquad
-        \widetilde{\mathfrak{g}^{ki}}\widetilde{g_{ij}} & = & \delta^k_j
+        v_i & = & \textcolor{MidnightBlue}{g_{ij}} v^j \qquad\qquad 
+        \widetilde{v_i} & = & \textcolor{red}{\widetilde{g_{ij}}} \widetilde{v^j} \\
+        v^i & = & \textcolor{MidnightBlue}{\mathfrak{g}^{ij}} v_j \qquad\qquad
+        \widetilde{v^i} & = &
+        \textcolor{red}{\widetilde{\mathfrak{g}^{ij}}} \widetilde{v_j} \\
+        \text{where}\quad \textcolor{MidnightBlue}{\mathfrak{g}^{ki}}
+        \textcolor{MidnightBlue}{g_{ij}} & = &  \delta^k_j \qquad\qquad
+        \textcolor{red}{\widetilde{\mathfrak{g}^{ki}}}
+        \textcolor{red}{\widetilde{g_{ij}}} & = & \delta^k_j
     \end{array}
 \end{equation} \\
 

@@ -1,13 +1,12 @@
 \subsection{Covector Definition:}
 
-Covectors and vectors are fundamentally different objects\footnote{Covectors can
-"basically" be regarded as row vectors. However, only in an orthormal basis there is a
-trivial link to column vector components. This is not true in the general case of
-non-orthonormal basis vectors.}. Covectors are functions that take vectors as arguments.
-They yield a scalar output $\alpha$ on a vector input $\vec{v}$:
+Covectors and vectors are fundamentally different objects\footnote{Covector components are
+typically represented as rows of numbers, while vector components are typically
+represented as columns of numbers.}. Covectors are functions that take vectors as
+arguments. They yield a scalar output $\alpha$ on a vector input $\vec{v}$:
 
 \begin{equation}
-    \alpha(\vec{v}) = \alpha_1 v^1 + \alpha_2 v^2 + \dots + \alpha_n v^n =
+    \alpha = \alpha(\vec{v}) = \alpha_1 v^1 + \alpha_2 v^2 + \dots + \alpha_n v^n =
     \sum\limits_{i}\alpha_i \hdvc{i} 
 \end{equation}
 
@@ -18,14 +17,14 @@ linear functions:
 \begin{equation}
     \label{eq:covector_linearity}
     \begin{array}{rcl}
-        \alpha(\textcolor{ForestGreen}{\vec{v}}+\textcolor{RoyalPurple}{\vec{w}}) & = &
-        \alpha(\textcolor{ForestGreen}{\vec{v}})+\alpha(\textcolor{RoyalPurple}{\vec{w}}) \\
-        \alpha(\textcolor{Goldenrod}{n}\textcolor{ForestGreen}{\vec{v}}) & = &
-        \textcolor{Goldenrod}{n}\alpha(\textcolor{ForestGreen}{\vec{v}}) \\
-        \alpha(\textcolor{Goldenrod}{n}\textcolor{ForestGreen}{\vec{v}}+
-        \textcolor{YellowOrange}{m}\textcolor{RoyalPurple}{\vec{w}}) & = &
-        \textcolor{Goldenrod}{n}\alpha(\textcolor{ForestGreen}{\vec{v}})+
-        \textcolor{YellowOrange}{m}\alpha(\textcolor{RoyalPurple}{\vec{w}})
+        \alpha(\textcolor{YellowOrange}{\vec{v}}+\textcolor{RoyalPurple}{\vec{w}}) & = &
+        \alpha(\textcolor{YellowOrange}{\vec{v}})+\alpha(\textcolor{RoyalPurple}{\vec{w}}) \\
+        \alpha(\textcolor{ForestGreen}{n}\textcolor{YellowOrange}{\vec{v}}) & = &
+        \textcolor{ForestGreen}{n}\alpha(\textcolor{YellowOrange}{\vec{v}}) \\
+        \alpha(\textcolor{ForestGreen}{n}\textcolor{YellowOrange}{\vec{v}}+
+        \textcolor{Mahogany}{m}\textcolor{RoyalPurple}{\vec{w}}) & = &
+        \textcolor{ForestGreen}{n}\alpha(\textcolor{YellowOrange}{\vec{v}})+
+        \textcolor{Mahogany}{m}\alpha(\textcolor{RoyalPurple}{\vec{w}})
     \end{array}
 \end{equation}
 
@@ -35,8 +34,8 @@ scaled and added:
 \begin{equation}
     \label{eq:covector_add_scale}
     \begin{array}{rcl}
-        (n\alpha)(\hdv) & = &
-        n\alpha(\hdv)\\
+        (\textcolor{ForestGreen}{n}\alpha)(\hdv) & = &
+        \textcolor{ForestGreen}{n}\alpha(\hdv)\\
         (\beta + \gamma)(\hdv) & = &
         \beta(\hdv)+ \gamma(\hdv)
     \end{array}
@@ -53,7 +52,7 @@ normal to the stack height lines:
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{Covector_as_oriented_stack_eigenchris}
-    \caption{Example: covector visualized as lines of constant function value}
+    \caption{Example of a covector visualized as lines of constant function value}
     \label{fig:covector_visualized}
 \end{figure}
 
@@ -63,7 +62,7 @@ result:
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{Covector_return_values_eigenchris}
-    \caption{Example: covector return values from given input vectors}
+    \caption{Examples of covector return values from given input vectors}
     \label{fig:covector_return_values}
 \end{figure}
 
@@ -99,8 +98,9 @@ vectors like \{\hdbv{1}, \hdbv{2}\} to measure covectors directly. But still the
 \end{equation}
 
 This effectively links the bases \hdcbvc{i} and \hdbv{i} and the vector spaces $V$ and
-$V^*$, making $V^*$ the dual space of $V$. It enables us to use these covectors to find
-the coordinates of arbitrary vectors of $V$ by applying these special covectors to them:
+$V^*$, making $V^*$ the dual space of $V$. \hdcbvc{i} and \hdbv{i} are reciprocal bases to
+each other. The reciprocal covector basis enables us to find the coordinates of arbitrary
+vectors of $V$ by applying these special covectors to them:
 
 \begin{equation}
     \begin{array}{rcl}

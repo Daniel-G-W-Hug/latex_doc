@@ -11,7 +11,7 @@ first basis vector and the second column the mapped value of the second basis ve
 general the $i^{th}$ column is the mapped value of the $i^{th}$ basis vector.\\
 
 From a geometrical point of view linear maps are spacial transforms that keep gridlines
-parallel, keep gridlines evenly spaced, and keep the origin stationary. That is linear
+parallel, keep gridlines evenly spaced, and keep the origin stationary. That means linear
 maps can stretch and rotate the input vectors, but they don't shift the origin.\\
 
 From an abstract point of view linear maps do map vectors to vectors and have the
@@ -20,10 +20,10 @@ linearity properties, i.e. can be added and scaled. That means:
     \label{eq:linear_map_properties}
     \begin{array}{rcl}
         L: V \rightarrow  V &\text{or}& L: V \rightarrow W \\
-        L(\textcolor{ForestGreen}{\vec{v}} + \textcolor{RoyalPurple}{\vec{w}}) & = &
-        L(\textcolor{ForestGreen}{\vec{v}}) + L(\textcolor{RoyalPurple}{\vec{w}}) \\
-        L(\textcolor{Goldenrod}{n}\textcolor{ForestGreen}{\vec{v}}) & = &
-        \textcolor{Goldenrod}{n}L(\textcolor{ForestGreen}{\vec{v}}) 
+        L(\textcolor{YellowOrange}{\vec{v}} + \textcolor{RoyalPurple}{\vec{w}}) & = &
+        L(\textcolor{YellowOrange}{\vec{v}}) + L(\textcolor{RoyalPurple}{\vec{w}}) \\
+        L(\textcolor{ForestGreen}{n}\textcolor{YellowOrange}{\vec{v}}) & = &
+        \textcolor{ForestGreen}{n}L(\textcolor{YellowOrange}{\vec{v}}) 
     \end{array}
 \end{equation}
 
@@ -32,7 +32,7 @@ components directly from the linearity properties~(\ref{eq:linear_map_properties
 \begin{equation}
     \label{eq:linear_map_derive_matrix_multiplication}
     \begin{array}{rcl}
-        \textcolor{RoyalPurple}{\vec{w}} = L(\textcolor{Goldenrod}{\vec{v}}) & = &
+        \textcolor{RoyalPurple}{\vec{w}} = L(\textcolor{YellowOrange}{\vec{v}}) & = &
         L(\hdvc{1}\hdbv{1} + \hdvc{2}\hdbv{2}) \\
         & \underset{(\ref{eq:linear_map_properties})}{=} &
         \hdvc{1}L(\hdbv{1}) + \hdvc{2}L(\hdbv{2})
@@ -54,7 +54,7 @@ Assuming $L: V\rightarrow V$, we can express the resulting vector in
     \label{eq:linear_map_derive_matrix_multiplication_3}
     \begin{array}{rcl}
         \Rightarrow\textcolor{RoyalPurple}{\vec{w}} =
-        L(\textcolor{Goldenrod}{\vec{v}}) & = &
+        L(\textcolor{YellowOrange}{\vec{v}}) & = &
         \hdvc{1}(L^{1~}_{~1}\hdbv{1} + L^{2~}_{~1}\hdbv{2}) +
         \hdvc{2}(L^{1~}_{~2}\hdbv{1} + L^{2~}_{~2}\hdbv{2}) \\
         & = & (L^{1~}_{~1}\hdvc{1}+ L^{1~}_{~2}\hdvc{2})\hdbv{1} +
@@ -103,7 +103,7 @@ matrix $B^{i~}_{~t}$we get:
         B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} \\
         F^{s~}_{~l} \widetilde{L^{l~}_{~i}} B^{i~}_{~t} & = &
         F^{s~}_{~l} B^{l~}_{~k} L^{k~}_{~j} F^{j~}_{~i} B^{i~}_{~t} \\
-        & = & \delta^s_k L^{k~}_{~j} \delta^j_t = L^{s~}_{~t} \\
+        & = & \quad \delta^s_k \quad L^{k~}_{~j} \quad \delta^j_t \quad = L^{s~}_{~t} \\
         \noalign{\vskip10pt}
         \Rightarrow \textcolor{MidnightBlue}{L^{s~}_{~t}} & = &
         F^{s~}_{~l} \textcolor{red}{\widetilde{L^{l~}_{~i}}} B^{i~}_{~t}  
